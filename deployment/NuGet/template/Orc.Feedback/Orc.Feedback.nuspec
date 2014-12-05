@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Orc.Feedback</id>
+    <version>[VERSION]</version>
+    <title>Orc.Feedback</title>
+    <authors>OrchestraDevs</authors>
+    <owners>OrchestraDevs</owners>
+
+	<description>
+	  This library allows the user to easily get feedback from the end-user. 
+	</description>
+	<summary>
+	</summary>
+
+	<tags>orc feedback</tags>
+
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright Orchestra team 2010 - 2014</copyright>
+
+	<language>en-US</language>
+	<projectUrl>https://github.com/Orcomp/Orc.Feedback</projectUrl>
+	<!--<licenseUrl>http://catel.codeplex.com/license</licenseUrl>-->
+	<!--<iconUrl>http://www.catenalogic.com/catel.png</iconUrl>-->
+    
+    <dependencies>
+      <dependency id="Catel.Core" version="[replaced]" />
+      <dependency id="Catel.MVVM" version="[replaced]" />
+    </dependencies>
+  </metadata>
+</package>

@@ -12,6 +12,6 @@ namespace Orc.Feedback
     public interface IFeedbackService
     {
         string Url { get; set; }
-        Task ProvideFeedback();
+        Task ProvideFeedbackAsync();
     }
 }

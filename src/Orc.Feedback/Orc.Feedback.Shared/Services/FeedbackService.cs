@@ -26,7 +26,7 @@ namespace Orc.Feedback
 
         public string Url { get; set; }
 
-        public async Task ProvideFeedback()
+        public async Task ProvideFeedbackAsync()
         {
             // for now, just open the url in the browser
             _processService.StartProcess(Url);

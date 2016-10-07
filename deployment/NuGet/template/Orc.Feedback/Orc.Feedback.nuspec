@@ -4,8 +4,8 @@
     <id>Orc.Feedback</id>
     <version>[VERSION]</version>
     <title>Orc.Feedback</title>
-    <authors>OrchestraDevs</authors>
-    <owners>OrchestraDevs</owners>
+    <authors>WildGums</authors>
+    <owners>WildGums</owners>
 
 	<description>
 	  This library allows the user to easily get feedback from the end-user. 
@@ -16,7 +16,7 @@
 	<tags>orc feedback</tags>
 
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright Wild Gums 2010 - 2015</copyright>
+    <copyright>Copyright WildGums 2010 - 2015</copyright>
 
 	<language>en-US</language>
 	<projectUrl>https://github.com/WildGums/Orc.Feedback</projectUrl>

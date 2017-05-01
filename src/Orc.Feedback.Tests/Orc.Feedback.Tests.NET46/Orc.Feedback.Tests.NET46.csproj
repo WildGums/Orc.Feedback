@@ -7,8 +7,8 @@
     <ProjectGuid>{DF397D9F-B7E9-4426-8B21-9B25A87BD163}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Orc.Feedback.Tests.NET46</RootNamespace>
-    <AssemblyName>Orc.Feedback.Tests.NET46</AssemblyName>
+    <RootNamespace>Orc.Feedback.Tests</RootNamespace>
+    <AssemblyName>Orc.Feedback.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

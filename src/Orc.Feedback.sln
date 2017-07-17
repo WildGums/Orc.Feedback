@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26020.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Feedback.NET40", "Orc.Feedback\Orc.Feedback.NET40\Orc.Feedback.NET40.csproj", "{589A582A-9995-4293-B5DF-5B95F10CB1FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Feedback.NET47", "Orc.Feedback\Orc.Feedback.NET47\Orc.Feedback.NET47.csproj", "{589A582A-9995-4293-B5DF-5B95F10CB1FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A335AA39-10A9-4269-ADDC-780022AE1C16}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{F6EAB599-0
 		SolutionAssemblyInfo.cs = SolutionAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Feedback.Tests.NET40", "Orc.Feedback.Tests\Orc.Feedback.Tests.NET40\Orc.Feedback.Tests.NET40.csproj", "{1C7E13A8-E796-45C4-9B1F-5F7B3658F4D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Feedback.Tests.NET47", "Orc.Feedback.Tests\Orc.Feedback.Tests.NET47\Orc.Feedback.Tests.NET47.csproj", "{1C7E13A8-E796-45C4-9B1F-5F7B3658F4D2}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.Feedback.Shared", "Orc.Feedback\Orc.Feedback.Shared\Orc.Feedback.Shared.shproj", "{F4D7F865-3D1B-4C9B-A6DA-11BD0C534121}"
 EndProject

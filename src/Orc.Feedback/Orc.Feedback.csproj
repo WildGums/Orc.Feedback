@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net46;net47;uap10.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net46;net47;netstandard2.0</TargetFrameworks>
     <AssemblyName>Orc.Feedback</AssemblyName>
     <RootNamespace>Orc.Feedback</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -10,6 +10,11 @@
     <PackageTags>orc;feedback</PackageTags>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- SonarQube requires a project guid -->
+    <ProjectGuid>F280E1A7-11B0-4B4F-8B9A-DA9B62EAC3FD</ProjectGuid>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="MethodTimer.Fody" Version="2.1.0" PrivateAssets="all" />
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="all" />

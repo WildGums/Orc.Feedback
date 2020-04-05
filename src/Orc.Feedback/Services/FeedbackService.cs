@@ -31,6 +31,12 @@ namespace Orc.Feedback
 
         public async Task ProvideFeedbackAsync()
         {
+            if (string.IsNullOrEmpty(Url))
+            {
+                Log.Error("Incorrect feedback uri");
+                return;
+            }
+
             Log.Debug($"Launching uri '{Url}");
 
             // for now, just open the url in the browser

@@ -8,8 +8,7 @@ namespace Orc.Feedback
 {
     public class FeedbackService : Orc.Feedback.IFeedbackService
     {
-        public FeedbackService() { }
-        public string ApiToken { get; set; }
+        public FeedbackService(Catel.Services.IProcessService processService) { }
         public string Url { get; set; }
         public System.Threading.Tasks.Task ProvideFeedbackAsync() { }
     }

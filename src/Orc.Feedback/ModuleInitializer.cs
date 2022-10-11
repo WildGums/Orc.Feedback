@@ -16,7 +16,7 @@ public static class ModuleInitializer
 
         serviceLocator.RegisterType<IFeedbackService, FeedbackService>();
 
-        var languageService = serviceLocator.ResolveType<ILanguageService>();
+        var languageService = serviceLocator.ResolveRequiredType<ILanguageService>();
         languageService.RegisterLanguageSource(new LanguageResourceSource("Orc.Feedback", "Orc.Feedback.Properties", "Resources"));
     }
 }

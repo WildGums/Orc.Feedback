@@ -1,31 +1,23 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FeedbackService.cs" company="WildGums">
-//   Copyright (c) 2008 - 2014 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-
-namespace Orc.Feedback
+﻿namespace Orc.Feedback
 {
     using System;
     using System.Threading.Tasks;
     using Catel.Logging;
-
-#if NETFX_CORE
-    using Windows.System;
-#else
-    using System.Diagnostics;
-#endif
+    using Catel.Services;
 
     public class FeedbackService : IFeedbackService
     {
         private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private readonly IProcessService _processService;
 
-        public FeedbackService()
+        public FeedbackService(IProcessService processService)
         {
-        }
+            ArgumentNullException.ThrowIfNull(processService);
 
-        public string ApiToken { get; set; }
+            _processService = processService;
+
+            Url = string.Empty;
+        }
 
         public string Url { get; set; }
 
@@ -40,11 +32,11 @@ namespace Orc.Feedback
             Log.Debug($"Launching uri '{Url}");
 
             // for now, just open the url in the browser
-#if NETFX_CORE
-            await Launcher.LaunchUriAsync(new Uri(Url, UriKind.RelativeOrAbsolute));
-#else
-            Process.Start(Url);
-#endif
+            _processService.StartProcess(new ProcessContext
+            {
+                FileName = Url,
+                UseShellExecute = true
+            });
         }
     }
 }

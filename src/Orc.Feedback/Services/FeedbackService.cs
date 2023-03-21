@@ -1,42 +1,41 @@
-﻿namespace Orc.Feedback
+﻿namespace Orc.Feedback;
+
+using System;
+using System.Threading.Tasks;
+using Catel.Logging;
+using Catel.Services;
+
+public class FeedbackService : IFeedbackService
 {
-    using System;
-    using System.Threading.Tasks;
-    using Catel.Logging;
-    using Catel.Services;
+    private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+    private readonly IProcessService _processService;
 
-    public class FeedbackService : IFeedbackService
+    public FeedbackService(IProcessService processService)
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
-        private readonly IProcessService _processService;
+        ArgumentNullException.ThrowIfNull(processService);
 
-        public FeedbackService(IProcessService processService)
+        _processService = processService;
+
+        Url = string.Empty;
+    }
+
+    public string Url { get; set; }
+
+    public async Task ProvideFeedbackAsync()
+    {
+        if (string.IsNullOrEmpty(Url))
         {
-            ArgumentNullException.ThrowIfNull(processService);
-
-            _processService = processService;
-
-            Url = string.Empty;
+            Log.Error("Incorrect feedback uri");
+            return;
         }
 
-        public string Url { get; set; }
+        Log.Debug($"Launching uri '{Url}");
 
-        public async Task ProvideFeedbackAsync()
+        // for now, just open the url in the browser
+        _processService.StartProcess(new ProcessContext
         {
-            if (string.IsNullOrEmpty(Url))
-            {
-                Log.Error("Incorrect feedback uri");
-                return;
-            }
-
-            Log.Debug($"Launching uri '{Url}");
-
-            // for now, just open the url in the browser
-            _processService.StartProcess(new ProcessContext
-            {
-                FileName = Url,
-                UseShellExecute = true
-            });
-        }
+            FileName = Url,
+            UseShellExecute = true
+        });
     }
 }

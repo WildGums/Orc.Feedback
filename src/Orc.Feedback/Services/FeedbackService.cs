@@ -1,50 +1,41 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FeedbackService.cs" company="WildGums">
-//   Copyright (c) 2008 - 2014 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿namespace Orc.Feedback;
 
+using System;
+using System.Threading.Tasks;
+using Catel.Logging;
+using Catel.Services;
 
-namespace Orc.Feedback
+public class FeedbackService : IFeedbackService
 {
-    using System;
-    using System.Threading.Tasks;
-    using Catel.Logging;
+    private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+    private readonly IProcessService _processService;
 
-#if NETFX_CORE
-    using Windows.System;
-#else
-    using System.Diagnostics;
-#endif
-
-    public class FeedbackService : IFeedbackService
+    public FeedbackService(IProcessService processService)
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        ArgumentNullException.ThrowIfNull(processService);
 
-        public FeedbackService()
+        _processService = processService;
+
+        Url = string.Empty;
+    }
+
+    public string Url { get; set; }
+
+    public async Task ProvideFeedbackAsync()
+    {
+        if (string.IsNullOrEmpty(Url))
         {
+            Log.Error("Incorrect feedback uri");
+            return;
         }
 
-        public string ApiToken { get; set; }
+        Log.Debug($"Launching uri '{Url}");
 
-        public string Url { get; set; }
-
-        public async Task ProvideFeedbackAsync()
+        // for now, just open the url in the browser
+        _processService.StartProcess(new ProcessContext
         {
-            if (string.IsNullOrEmpty(Url))
-            {
-                Log.Error("Incorrect feedback uri");
-                return;
-            }
-
-            Log.Debug($"Launching uri '{Url}");
-
-            // for now, just open the url in the browser
-#if NETFX_CORE
-            await Launcher.LaunchUriAsync(new Uri(Url, UriKind.RelativeOrAbsolute));
-#else
-            Process.Start(Url);
-#endif
-        }
+            FileName = Url,
+            UseShellExecute = true
+        });
     }
 }

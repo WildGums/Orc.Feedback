@@ -1,19 +1,17 @@
 ﻿namespace Orc.Feedback;
 
-using System;
 using System.Threading.Tasks;
-using Catel.Logging;
 using Catel.Services;
+using Microsoft.Extensions.Logging;
 
 public class FeedbackService : IFeedbackService
 {
-    private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+    private readonly ILogger<FeedbackService> _logger;
     private readonly IProcessService _processService;
 
-    public FeedbackService(IProcessService processService)
+    public FeedbackService(ILogger<FeedbackService> logger, IProcessService processService)
     {
-        ArgumentNullException.ThrowIfNull(processService);
-
+        _logger = logger;
         _processService = processService;
 
         Url = string.Empty;
@@ -25,11 +23,11 @@ public class FeedbackService : IFeedbackService
     {
         if (string.IsNullOrEmpty(Url))
         {
-            Log.Error("Incorrect feedback uri");
+            _logger.LogError("Incorrect feedback uri");
             return;
         }
 
-        Log.Debug($"Launching uri '{Url}");
+        _logger.LogDebug($"Launching uri '{Url}");
 
         // for now, just open the url in the browser
         _processService.StartProcess(new ProcessContext

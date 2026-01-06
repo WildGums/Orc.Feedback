@@ -18,6 +18,9 @@ namespace Orc.Feedback
         string Url { get; set; }
         System.Threading.Tasks.Task ProvideFeedbackAsync();
     }
+}
+namespace Orc
+{
     public static class OrcFeedbackModule
     {
         public static Microsoft.Extensions.DependencyInjection.IServiceCollection AddOrcFeedback(this Microsoft.Extensions.DependencyInjection.IServiceCollection serviceCollection) { }

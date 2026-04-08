@@ -1,19 +1,18 @@
-﻿namespace Orc.Feedback.Tests
+﻿namespace Orc.Feedback.Tests;
+
+using Catel;
+using Microsoft.Extensions.DependencyInjection;
+
+internal static class ServiceCollectionHelper
 {
-    using Catel;
-    using Microsoft.Extensions.DependencyInjection;
-
-    internal static class ServiceCollectionHelper
+    public static IServiceCollection CreateServiceCollection()
     {
-        public static IServiceCollection CreateServiceCollection()
-        {
-            var serviceCollection = new ServiceCollection();
+        var serviceCollection = new ServiceCollection();
 
-            serviceCollection.AddLogging();
-            serviceCollection.AddCatelCore();
-            serviceCollection.AddOrcFeedback();
+        serviceCollection.AddLogging();
+        serviceCollection.AddCatelCore();
+        serviceCollection.AddOrcFeedback();
 
-            return serviceCollection;
-        }
+        return serviceCollection;
     }
 }

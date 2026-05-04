@@ -27,7 +27,7 @@ public class FeedbackService : IFeedbackService
             return;
         }
 
-        _logger.LogDebug($"Launching uri '{Url}");
+        _logger.LogDebug("Launching uri '{Url}'", Url);
 
         // for now, just open the url in the browser
         _processService.StartProcess(new ProcessContext

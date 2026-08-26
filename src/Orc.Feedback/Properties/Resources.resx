@@ -98,4 +98,10 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="FeedbackService_IncorrectFeedbackUri" xml:space="preserve">
+		<value>Incorrect feedback uri</value>
+	</data>
+	<data name="FeedbackService_LaunchingUri" xml:space="preserve">
+		<value>Launching uri '{Url}'</value>
+	</data>
 </root>
